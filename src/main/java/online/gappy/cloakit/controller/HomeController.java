@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class FoodOrderingController {
+public class HomeController {
 
     @GetMapping("/")
     public String home(Model model) {

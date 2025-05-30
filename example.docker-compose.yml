@@ -1,0 +1,26 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    environment:
+      KEYCLOAK_ADMIN: admin_user
+      KEYCLOAK_ADMIN_PASSWORD: admin_password
+    ports:
+      - "8088:8080"
+    command:
+      - start-dev
+  mysql:
+    image: mysql:8.0.32
+    container_name: container_name
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: db_name
+      MYSQL_USER: root_user
+      MYSQL_PASSWORD: user_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - "mysql-data:/var/lib/mysql"
+
+volumes:
+  mysql-data:
